@@ -2,7 +2,9 @@ package pl.comarch.szkolenia.car.rent.gui;
 
 import pl.comarch.szkolenia.car.rent.model.Bus;
 import pl.comarch.szkolenia.car.rent.model.Car;
+import pl.comarch.szkolenia.car.rent.model.Vehicle;
 
+import java.util.Collection;
 import java.util.Scanner;
 
 public class GUI {
@@ -15,35 +17,10 @@ public class GUI {
         return scanner.nextLine();
     }
 
-    public static void listCars(Car[] cars) {
-        for(Car car : cars) {
-            System.out.println(new StringBuilder()
-                    .append(car.getBrand())
-                    .append(" ")
-                    .append(car.getModel())
-                    .append(" ")
-                    .append(car.getPlate())
-                    .append(" ")
-                    .append(car.getPrice())
-                    .append(" ")
-                    .append(car.isRent() ? "Niedostepny" : "Dostepny"));
-        }
-    }
-
-    public static void listBuses(Bus[] buses) {
-        for(Bus bus : buses) {
-            System.out.println(new StringBuilder()
-                    .append(bus.getBrand())
-                    .append(" ")
-                    .append(bus.getModel())
-                    .append(" ")
-                    .append(bus.getPlate())
-                    .append(" ")
-                    .append(bus.getPrice())
-                    .append(" ")
-                    .append(bus.getSeats())
-                    .append(" ")
-                    .append(bus.isRent() ? "Niedostepny" : "Dostepny"));
+    public static void listVehicles(
+            Collection<Vehicle> vehicles) {
+        for(Vehicle vehicle : vehicles) {
+            System.out.println(vehicle.toString());
         }
     }
 

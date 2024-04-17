@@ -10,8 +10,7 @@ public class Core {
         while (run) {
             switch(GUI.showMenu()) {
                 case "1":
-                    GUI.listCars(carRepository.getCars());
-                    GUI.listBuses(carRepository.getBuses());
+                    GUI.listVehicles(carRepository.getVehicles());
                     break;
                 case "2":
                     GUI.showSuccess(
