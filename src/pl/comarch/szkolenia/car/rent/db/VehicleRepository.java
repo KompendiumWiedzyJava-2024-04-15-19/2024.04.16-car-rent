@@ -8,6 +8,7 @@ import pl.comarch.szkolenia.car.rent.model.Vehicle;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class VehicleRepository {
     private final Map<String, Vehicle> vehicles =
@@ -71,5 +72,24 @@ public class VehicleRepository {
             return true;
         }
         return false;
+    }
+
+    public Optional<Vehicle> find(String plate) {
+        for (Vehicle vehicle : this.vehicles.values()) {
+            if(vehicle.getPlate().equals(plate)) {
+                return Optional.of(vehicle);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static void main(String[] args) {
+        VehicleRepository vehicleRepository =
+                new VehicleRepository();
+        Optional<Vehicle> vehicleBox = vehicleRepository.find("KR12");
+        if(vehicleBox.isPresent()) {
+            Vehicle v = vehicleBox.get();
+            System.out.println(v.getBrand());
+        }
     }
 }
